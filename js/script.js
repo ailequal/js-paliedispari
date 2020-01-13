@@ -19,12 +19,14 @@ function isPalindroma(word) {
     reverse += word.charAt(i);
   }
   if (word === reverse) {
+    i = 0;
+    reverse = '';
     return true;
   } else {
+    i = 0;
+    reverse = '';
     return false;
   }
-  i = 0;
-  reverse = '';
 }
 
 
@@ -42,7 +44,18 @@ do {
 } while (play !== 'yes' && play !== 'no');
 
 if (play === 'yes') {
+  oddEven();
+  do {
+    play = prompt('Do you want to play again? Reply with \'yes\' or \'no\'');
+  } while (play !== 'yes' && play !== 'no');
+  if (play === 'yes') {
+    oddEven();
+  }
+} else {
+  console.log('Goodbye');
+}
 
+function oddEven() {
   do {
     userPick = prompt('Pick \'odd\' or \'even\'');
   } while (userPick !== 'odd' && userPick !== 'even');
@@ -72,9 +85,6 @@ if (play === 'yes') {
   } else {
     console.log('User wins!!');
   }
-
-} else {
-  console.log('Goodbye');
 }
 
 function getRandomInt(min, max) {
